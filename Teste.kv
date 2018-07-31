@@ -1,0 +1,10 @@
+<incrementador>:
+    orientation: 'vertical'
+    Button:
+        text:'Incrementar'
+        font_size:30
+        on_release: label.text = str(app.incrementar())
+    Label:
+        id:label
+        text:'1'
+        font_size:30
