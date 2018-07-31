@@ -4,20 +4,21 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 
 class Teste(App):
+
     def build(self):
         box = BoxLayout(orientation="vertical")
-        button = Button(text="Botão 1")
-        label = Label(text="Texto 1")
+        button = Button(text="Botão 1", font_size=30, on_release=self.incrementar)
+        self.label = Label(text="Texto 1", font_size=30)
         box.add_widget(button)
-        box.add_widget(label)
+        box.add_widget(self.label)
 
-        box2 = BoxLayout()
-        button2 = Button(text="Botão 1")
-        label2 = Label(text="Texto 1")
-        box2.add_widget(button2)
-        box2.add_widget(label2)
+        self.x = 0
 
-        box.add_widget(box2)
         return box
+
+    def incrementar(self, button):
+        self.x += 1
+        self.label.text = str(self.x)
+
 
 Teste().run()
